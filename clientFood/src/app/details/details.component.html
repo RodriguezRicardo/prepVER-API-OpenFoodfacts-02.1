@@ -1,1 +1,18 @@
-<p>details works!</p>
+<!--prodName(che si trova in details.component.ts)
+contiene le informazioni del oggetto ricercato-->
+
+<!--{{prodName.product.image_small_url}}
+product e' dove contiene immagine-->
+<h1>Product characteristics</h1>
+<div class="row">
+  <div class="col-sm-6 col-lg-3">
+    <img src="{{prodName.product.image_small_url}}" alt="immagine">
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <p><b>Name product:</b> {{prodName.product.generic_name}}</p>
+    <p><b>Brand:</b> {{prodName.product.brands}}</p>
+    <p><b>Quantity:</b> {{prodName.product.quantity}}</p>
+    <p><b>Categories:</b> {{prodName.product.categories}}</p>
+    <p><b>Packaging:</b> {{prodName.product.packaging}}</p>
+  </div>
+</div>

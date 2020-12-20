@@ -5,4 +5,13 @@
   <button class="btn btn-outline-primary" (click)="submit(newquery)">Search</button>
 </p>
 
-{{results | json}}
+<div class="card-columns">
+  <div *ngFor='let prod of results.products'>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{prod.image_small_url}}" alt="immagine">
+      <div class="card-body">
+        <a class="card-title" [routerLink]="['/details', prod.id]">{{prod.product_name_fr}}</a>
+      </div>
+    </div>
+  </div>
+</div>
