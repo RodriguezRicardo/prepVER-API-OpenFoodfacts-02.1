@@ -8,11 +8,20 @@ product e' dove contiene immagine-->
   <div class="col-sm-6 col-lg-3">
     <img src="{{prodName.product.image_small_url}}" alt="immagine">
   </div>
+
   <div class="col-sm-6 col-lg-3">
-    <p><b>Name product:</b> {{prodName.product.generic_name}}</p>
+    <div *ngIf="prodName.product.generic_name">
+      <p><b>Generic name:</b> {{prodName.product.generic_name}}</p>
+    </div>
+    <div *ngIf="!prodName.product.generic_name">
+      <p><b>Name product:</b> {{prodName.product.product_name}}</p>
+    </div>
+
     <p><b>Brand:</b> {{prodName.product.brands}}</p>
     <p><b>Quantity:</b> {{prodName.product.quantity}}</p>
     <p><b>Categories:</b> {{prodName.product.categories}}</p>
     <p><b>Packaging:</b> {{prodName.product.packaging}}</p>
   </div>
 </div>
+
+<a class="btn btn-primary" (click)="back()">Back</a>

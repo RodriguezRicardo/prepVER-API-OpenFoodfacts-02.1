@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FoodService } from '../food.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-details',
@@ -16,7 +17,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(public food : FoodService,
     private route: ActivatedRoute,
-    private service: FoodService) { }
+    private service: FoodService,
+    private location : Location) { }
 
   ngOnInit(): void {
     this.obsFood = this.route.paramMap;
@@ -31,4 +33,7 @@ export class DetailsComponent implements OnInit {
     this.foodServiceObs = this.service.getDetailsID(foodId);
     this.foodServiceObs.subscribe((data)=>this.prodName = data);
   }
+
+  back() : void
+  { this.location.back(); }
 }
